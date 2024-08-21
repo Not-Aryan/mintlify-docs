@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Kisho",
   "logo": {
-    "dark": "/logo/dark.svg",
+    "dark": "/logo/favicon-white.png",
     "light": "/logo/name-black.png"
   },
   "favicon": "/logo/favicon-white.png",

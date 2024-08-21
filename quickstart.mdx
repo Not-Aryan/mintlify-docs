@@ -1,6 +1,6 @@
 ---
 title: "Quickstart"
-description: "Get started with the Kisho SDK in under 5 minutes"
+description: "Get started with the Kisho SDK in under 2 minutes"
 ---
 
 ## Setup your environment
@@ -17,23 +17,13 @@ pip install kisho
 
 #### Set up your API keys
 
-Create a `.env` file in your project root and add your API keys:
-`bash
-    OPENAI_API_KEY=your_openai_api_key_here
-    KISHO_API_KEY=your_kisho_api_key_here
-    `
-Then, load these environment variables in your Python script:
+Create a `.env` file in your project root and add your API key:
 
-```python
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
-os.environ['KISHO_API_KEY'] = os.getenv('KISHO_API_KEY')
+```bash
+KISHO_API_KEY=your_kisho_api_key_here
 ```
 
-### Basic Usage
+## Basic Usage
 
 #### Initialize your LLM client
 
