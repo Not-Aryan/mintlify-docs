@@ -1,0 +1,115 @@
+---
+title: "Tree Example"
+description: "Visualize agentic trees with Kisho"
+---
+
+This guide demonstrates how to implement an agentic tree using the Kisho SDK. An agentic tree is a hierarchical structure of AI agents, each specialized in a specific task, working together to solve complex problems.
+
+## Setup
+
+First, let's set up our environment and import the necessary modules:
+
+```python
+import os
+from dotenv import load_dotenv
+from kisho import trace_oai, traced_function
+
+# Load environment variables
+load_dotenv()
+
+# Set up the OpenAI and Kisho API keys
+os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
+os.environ['KISHO_API_KEY'] = "your-kisho-api-key"
+
+# Initialize the traced OpenAI client
+client = trace_oai(api_key=os.environ['OPENAI_API_KEY'])
+```
+
+## Defining the Agentic Tree
+
+We'll create a simple agentic tree for analyzing text. Our tree will have a root agent that coordinates two child agents: one for sentiment analysis and another for topic extraction.
+
+### Root Agent: Text Analyzer
+
+```python
+@traced_function
+def analyze_text(query):
+    return {
+        "sentiment": sentiment_analysis(query),
+        "topics": topic_extraction(query)
+    }
+```
+
+### Child Agent 1: Sentiment Analyzer
+
+```python
+@traced_function
+def sentiment_analysis(query):
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a sentiment analysis expert. Provide a sentiment score from -1 (very negative) to 1 (very positive)."},
+            {"role": "user", "content": f"Analyze the sentiment of this text and return only a number:\n{query}"}
+        ],
+        agent_id="sentiment_analysis_agent",
+        metadata={"purpose": "sentiment analysis"},
+        tags=["nlp", "sentiment"],
+        max_tokens=10
+    )
+    return float(response.choices[0].message.content)
+```
+
+### Child Agent 2: Topic Extractor
+
+```python
+@traced_function
+def topic_extraction(query):
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a topic extraction expert. Identify the main topics in the given text."},
+            {"role": "user", "content": f"Extract the main topics from this text and return them as a comma-separated list:\n{query}"}
+        ],
+        agent_id="topic_extraction_agent",
+        metadata={"purpose": "topic extraction"},
+        tags=["nlp", "topics"],
+        max_tokens=50
+    )
+    return response.choices[0].message.content.split(", ")
+```
+
+## Using the Agentic Tree
+
+Now that we have defined our agentic tree, let's use it to analyze some text:
+
+```python
+def main():
+    query = "Climate change is a pressing issue. Global temperatures are rising, and we need to take action."
+    results = analyze_text(query)
+    print("\nAnalysis Results:")
+    print(results)
+
+    # End the tracing session
+    client.end_session()
+    print("\nSession ended")
+
+if __name__ == "__main__":
+    main()
+```
+
+## How It Works
+
+1. The root agent (`analyze_text`) receives the input query and coordinates the child agents.
+2. The sentiment analysis agent processes the text and returns a sentiment score.
+3. The topic extraction agent identifies the main topics in the text.
+4. The root agent combines the results from both child agents and returns a comprehensive analysis.
+
+## Benefits of This Approach
+
+- **Modularity**: Each agent is responsible for a specific task, making the system easy to extend or modify.
+- **Traceability**: The `@traced_function` decorator allows for detailed logging and monitoring of each agent's performance.
+- **Scalability**: You can easily add more specialized agents to the tree to handle more complex analyses.
+
+## Conclusion
+
+This example demonstrates how to implement a simple agentic tree using the Kisho SDK. By breaking down complex tasks into smaller, specialized components, you can create more robust and flexible AI systems.
