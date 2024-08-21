@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: 'Welcome to the home of your new documentation'
+description: "Launching our multi-agent IDE, helping AI teams iterate 10x faster."
 ---
 
 <img
@@ -14,58 +14,28 @@ description: 'Welcome to the home of your new documentation'
   alt="Hero Dark"
 />
 
-## Setting up
+## The Problem
 
-The first step to world-class documentation is setting up your editing environments.
+When developing multi-agent applications, where you chain multiple LLMs/functions together, making a small change (ex: step 5 of a 10-step process) typically requires rerunning the entire program from the beginning. This is not only time-consuming but also wastes tokens, which become big problems as systems grow more in size.
+
+## The Solution
+
+We've developed a specialized SDK + IDE for multi-agent development that intelligently caches outputs and maps relationships between steps. You still get granular control of your project, and we do the heavy lifting of constructing a call graph between functions.
+
+## What We Do
+
+Smart Caching: Our system caches the output of each step in your agent chain.
+Relationship Mapping: We create a map of how each step relates to others in your process.
+Instant Updates: When you make a change, our IDE only reruns the necessary steps, using cached data for the rest.
+
+## Getting Started
 
 <CardGroup cols={2}>
   <Card
-    title="Edit Your Docs"
+    title="Get Started"
     icon="pen-to-square"
     href="https://mintlify.com/docs/quickstart"
   >
-    Get your docs set up locally for easy development
-  </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
-
-## Make it yours
-
-Update your docs to your brand and add valuable content for the best user conversion.
-
-<CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
-  >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
+    Get up and running with our SDK
   </Card>
 </CardGroup>
