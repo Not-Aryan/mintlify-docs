@@ -3,9 +3,9 @@
   "name": "Kisho",
   "logo": {
     "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "light": "/logo/name-black.svg"
   },
-  "favicon": "/logo-favicon-white.png",
+  "favicon": "/favicon-white.png",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
