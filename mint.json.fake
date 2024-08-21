@@ -25,12 +25,49 @@
     "name": "Dashboard",
     "url": "https://beta.kisho.app"
   },
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Documentation",
+      "icon": "book-open-cover",
+      "url": "https://docs.kisho.app"
+    },
+    {
+      "name": "Community",
+      "icon": "slack",
+      "url": "https://discord.gg/kisho"
+    },
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://blog.kisho.app"
+    }
+  ],
   "navigation": [
     {
       "group": "Get Started",
       "pages": [
         "introduction",
         "quickstart"
+      ]
+    },
+    {
+      "group": "API Documentation",
+      "pages": [
+        "api-reference/introduction"
+      ]
+    },
+    {
+      "group": "Endpoint Examples",
+      "pages": [
+        "api-reference/endpoint/get",
+        "api-reference/endpoint/create",
+        "api-reference/endpoint/delete"
       ]
     }
   ],
