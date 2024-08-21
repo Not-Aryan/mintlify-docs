@@ -3,11 +3,11 @@
   "name": "Kisho",
   "logo": {
     "dark": "/logo/dark.svg",
-    "light": "/logo/name-black.svg"
+    "light": "/logo/name-black.png"
   },
-  "favicon": "/favicon-white.png",
+  "favicon": "/logo/favicon-white.png",
   "colors": {
-    "primary": "#0D9373",
+    "primary": "#a855f7",
     "light": "#07C983",
     "dark": "#0D9373",
     "anchors": {
@@ -53,19 +53,7 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "quickstart",
-        "development"
-      ]
-    },
-    {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "quickstart"
       ]
     },
     {
